@@ -49,8 +49,7 @@ userSchema.methods.generateAuthToken = function () {
     return jwt.sign({
             _id: this._id
         },
-        "secretPrivateKey", //usar config.get('jwtPrivateKey')
-        {
+        process.env.JWT_KEY || "secretPrivateKey", {
             expiresIn: "1h"
         }
     );
