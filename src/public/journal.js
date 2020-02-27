@@ -30,14 +30,6 @@ let pageCompleted = false;
 previousButton.addEventListener("click", () => changePage(previousButton));
 nextButton.addEventListener("click", () => changePage(nextButton));
 
-function openModal() {
-    loader.style.display = "inline-block";
-}
-
-function closeModal() {
-    loader.style.display = "none";
-}
-
 export function setJournalType() {
     if (!document.cookie) window.alert("Please sign in first.");
     //arreglar pora cuando expire el token
@@ -64,7 +56,9 @@ function getJournal(type, pagination) {
             let url = "/entries/" + type + "/" + currentPage;
             journal.setAttribute("data-type", type);
             journal.classList.add("active");
-            request.open("GET", url, true);
+
+            //si es asincrona no funciona la paginacion
+            request.open("GET", url, false);
 
             request.onreadystatechange = () => {
                 getJournalCallback(request);
@@ -217,9 +211,9 @@ function changePage(e) {
 function search() {
     resetJournal();
     sidebar.querySelector("#all").classList.add("active");
-    if (this.value === "") {
-        getJournal("all", true);
-    } else {
+
+    if (this.value === "") getJournal("all", true);
+    else {
         let request = new XMLHttpRequest();
         let url = "/search/" + this.value;
         request.open("GET", url, true);
@@ -239,4 +233,12 @@ function search() {
         };
         request.send();
     }
+}
+
+function openModal() {
+    loader.style.display = "inline-block";
+}
+
+function closeModal() {
+    loader.style.display = "none";
 }

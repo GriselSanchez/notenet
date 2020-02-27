@@ -56,7 +56,7 @@ router.get("/entries/all/:page", auth, async (req, res) => {
 });
 
 router.get("/entries/favorites/:page", auth, async (req, res) => {
-    const resPerPage = 10;
+    const resPerPage = 50;
     const page = req.params.page || 1;
 
     const numOfProducts = await Journal.countDocuments({
@@ -117,7 +117,7 @@ router.post("/titles/all", auth, async (req, res) => {
 });
 
 router.get("/search/:text", async (req, res) => {
-    const resPerPage = 5;
+    const resPerPage = 10;
     const page = req.params.page || 1;
 
     const numOfProducts = await Journal.countDocuments({
