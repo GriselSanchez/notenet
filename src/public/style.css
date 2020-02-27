@@ -170,6 +170,7 @@ body {
 }
 
 #toolbar select {
+  -webkit-appearance: none;
   background-color: var(--bg-color2);
   border: none;
   color: white;
