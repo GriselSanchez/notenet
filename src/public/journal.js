@@ -18,7 +18,8 @@ import {
 const journal = document.getElementById("journal");
 const previousButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
-const closeButton = document.getElementById("close-journal");
+const searchbar = document.getElementById("search-bar").querySelector("input");
+searchbar.addEventListener("change", search);
 
 let currentPage = 1;
 let productCount = 0;
@@ -53,7 +54,7 @@ function getJournal(type, pagination) {
             let url = "/entries/" + type + "/" + currentPage;
             journal.setAttribute("data-type", type);
             journal.classList.add("active");
-            request.open("GET", url, false);
+            request.open("GET", url, true);
 
             request.onreadystatechange = () => {
                 getJournalCallback(request);
@@ -201,8 +202,6 @@ function changePage(e) {
 
     getJournal(e.dataset.type, true);
 }
-const searchbar = document.getElementById("search-bar").querySelector("input");
-searchbar.addEventListener("input", search);
 
 function search() {
     resetJournal();
@@ -212,7 +211,7 @@ function search() {
     } else {
         let request = new XMLHttpRequest();
         let url = "/search/" + this.value;
-        request.open("GET", url, false);
+        request.open("GET", url, true);
         request.onreadystatechange = () => {
             if (request.readyState == 4 && request.status == 200) {
                 let journalData = JSON.parse(request.responseText);
