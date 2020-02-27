@@ -1,5 +1,7 @@
 import {
-    textContainer
+    textContainer,
+    openModal,
+    closeModal
 } from "./main.js";
 
 import {
@@ -16,7 +18,6 @@ import {
 } from "./sidebar.js";
 
 const journal = document.getElementById("journal");
-const loader = document.getElementsByClassName("loader")[0];
 const previousButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
 const searchbar = document.getElementById("search-bar").querySelector("input");
@@ -231,12 +232,4 @@ function search() {
         };
         request.send();
     }
-}
-
-function openModal() {
-    loader.style.display = "inline-block";
-}
-
-function closeModal() {
-    loader.style.display = "none";
 }

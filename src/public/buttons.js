@@ -1,6 +1,9 @@
 import {
-    textContainer
-} from './main.js'
+    textContainer,
+    openModal,
+    closeModal
+} from "./main.js";
+
 
 import {
     closeJournal
@@ -17,6 +20,7 @@ export function createButton(type) {
 }
 
 export function buttonHandler(button, journal) {
+    openModal();
     const type = button.dataset.type;
     const data = {
         html: journal.html,
@@ -94,4 +98,5 @@ function editButtonHandler(request) {
     textContainer.classList.add("edit-mode");
 
     closeJournal();
+    closeModal();
 }

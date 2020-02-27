@@ -5,6 +5,7 @@ import './forms.js'
 import './journal.js'
 
 export const textContainer = document.getElementById("text-container");
+const loader = document.getElementsByClassName("loader")[0];
 
 export function setMode() {
     let darkMode = document.getElementById("myCheck");
@@ -50,4 +51,12 @@ export function savedAnimation() {
         document.getElementById("saved").style.animationPlayState = "paused";
         document.getElementById("saved").style.display = "none";
     }, 3000);
+}
+
+export function openModal() {
+    loader.style.display = "inline-block";
+}
+
+export function closeModal() {
+    loader.style.display = "none";
 }
