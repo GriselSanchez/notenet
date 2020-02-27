@@ -29,16 +29,12 @@ body {
   vertical-align: top;
   position: fixed;
   top: 40%;
-  left: 20%;
-  right: 20%;
+  left: 45%;
 }
 
-/*
-  Set the color of the icon
-*/
 svg path,
 svg rect {
-  fill: #FF6700;
+  fill: var(--accent-color);
 }
 
 #sidebar button.active {
