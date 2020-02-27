@@ -569,6 +569,11 @@ figcaption {
   max-width: 100%;
 }
 
+.journal-item .source {
+  font-size: 12px;
+  max-width: 100%;
+}
+
 .journal-item .interface-buttons {
   text-align-last: center;
 }
