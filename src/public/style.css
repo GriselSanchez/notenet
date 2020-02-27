@@ -162,7 +162,7 @@ body {
 
 #toolbar .new-input input {
   padding: 5px;
-  /*   margin: auto; */
+  margin: auto;
   border: none;
   outline: none;
   background-color: var(--bg-color);
@@ -408,7 +408,6 @@ input[type="color"] {
 .add-url,
 .add-image {
   display: none;
-  flex-wrap: wrap;
 }
 
 /* The switch - the box around the slider */
@@ -637,11 +636,23 @@ figcaption {
   transform: translateX(5px);
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1100px) {
+
+  #sidebar p,
+  #dark-mode p {
+    display: none;
+  }
+
+  #sidebar .glyphicon,
+  #sidebar #sign button {
+    padding: 10px 0px;
+    margin: 0;
+    width: 100%;
+  }
 
   #toolbar button {
     padding: 1% 2%;
-    width: 12%;
+    width: auto;
     height: auto;
   }
 
@@ -681,25 +692,6 @@ figcaption {
   #journal {
     margin-left: 5%;
     margin-right: 5%;
-  }
-
-  #sidebar {
-    width: 16%;
-  }
-}
-
-@media only screen and (max-width: 1100px) {
-
-  #sidebar p,
-  #dark-mode p {
-    display: none;
-  }
-
-  #sidebar .glyphicon,
-  #sidebar #sign button {
-    padding: 10px 0px;
-    margin: 0;
-    width: 100%;
   }
 }
 
