@@ -20,7 +20,7 @@ const loader = document.getElementsByClassName("loader")[0];
 const previousButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
 const searchbar = document.getElementById("search-bar").querySelector("input");
-searchbar.addEventListener("change", search);
+searchbar.addEventListener("input", search);
 
 let currentPage = 1;
 let productCount = 0;
