@@ -56,13 +56,10 @@ function getJournal(type, pagination) {
             let url = "/entries/" + type + "/" + currentPage;
             journal.setAttribute("data-type", type);
             journal.classList.add("active");
-
-            //si es asincrona no funciona la paginacion
-            request.open("GET", url, false);
+            request.open("GET", url, true);
 
             request.onreadystatechange = () => {
-                getJournalCallback(request);
-                toggleJournal(pagination);
+                getJournalCallback(request, pagination);
             };
             request.send();
             pageCompleted = true;
@@ -70,12 +67,13 @@ function getJournal(type, pagination) {
     }
 }
 
-function getJournalCallback(request) {
+function getJournalCallback(request, pagination) {
     if (request.readyState == 4 && request.status == 200) {
         let journalData = JSON.parse(request.responseText);
         productCount = journalData.numOfProducts;
         resPerPage = journalData.resPerPage;
         journalData.foundProducts.forEach(getJournalEntry);
+        toggleJournal(pagination);
         closeModal();
     }
 }
