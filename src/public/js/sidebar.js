@@ -1,17 +1,22 @@
 import {
-    cleanContainer,
-    savedAnimation,
-    textContainer,
-    setMode
-} from './main.js';
-
-import {
     setJournalType
 } from './journal.js'
 
 import {
     toggleSignClass
-} from "./forms.js"
+} from './forms.js'
+
+import {
+    textContainer,
+    cleanContainer
+} from './textCont.js'
+
+import {
+    savedAnimation,
+    setMode,
+    openModal,
+    closeModal
+} from './animations.js'
 
 export const sidebar = document.getElementById("sidebar");
 
@@ -56,6 +61,7 @@ function saveEntry() {
         window.alert("Entry must have a title.");
 
     else {
+        openModal();
         const textContainerCopy = cleanContainer();
         let data = {
             title: textContainerCopy.querySelector("h1").innerHTML,
@@ -71,11 +77,16 @@ function saveEntry() {
         const json = JSON.stringify(data);
         const url = "/journal" + "/" + type;
         const request = new XMLHttpRequest();
+        request.onreadystatechange = () => {
+            if (request.readyState == 4 && request.status == 200) {
+                closeModal();
+                savedAnimation();
+            }
+        }
+
         request.open("POST", url, true);
         request.setRequestHeader("Content-Type", "application/json");
         request.send(json);
-
-        savedAnimation();
     }
 }
 

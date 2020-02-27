@@ -1,10 +1,5 @@
 import {
-    textContainer,
-    openModal,
-    closeModal
-} from "./main.js";
-
-import {
+    getJournalEntryButtons,
     createButton,
     buttonHandler
 } from "./buttons.js";
@@ -17,19 +12,30 @@ import {
     sidebar
 } from "./sidebar.js";
 
+import {
+    textContainer
+} from './textCont.js'
+
+import {
+    openModal,
+    closeModal
+} from './animations.js'
+
 const journal = document.getElementById("journal");
+
 const previousButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
+previousButton.addEventListener("click", () => changePage(previousButton));
+nextButton.addEventListener("click", () => changePage(nextButton));
+
+//no funciona con input en heroku (duplica entradas) pero si localmente
 const searchbar = document.getElementById("search-bar").querySelector("input");
-searchbar.addEventListener("input", search);
+searchbar.addEventListener("change", search);
 
 let currentPage = 1;
 let productCount = 0;
 let resPerPage = 0;
 let pageCompleted = false;
-
-previousButton.addEventListener("click", () => changePage(previousButton));
-nextButton.addEventListener("click", () => changePage(nextButton));
 
 export function setJournalType() {
     if (!document.cookie) window.alert("Please sign in first.");
@@ -73,38 +79,10 @@ function getJournalCallback(request, pagination) {
         let journalData = JSON.parse(request.responseText);
         productCount = journalData.numOfProducts;
         resPerPage = journalData.resPerPage;
-        journalData.foundProducts.forEach(getJournalEntry);
         toggleJournal(pagination);
+        journalData.foundProducts.forEach(getJournalEntry);
         closeModal();
     }
-}
-
-function getJournalEntryButtons(j) {
-    let buttons = document.createElement("div");
-    buttons.classList.add("interface-buttons");
-
-    let deleteButton = createButton("delete");
-    deleteButton.addEventListener("click", () => {
-        buttonHandler(deleteButton, j);
-        window.location = "/";
-    });
-
-    let favoriteButton = createButton("favorite");
-    if (j.isFavorite) favoriteButton.style.color = "var(--accent-color)";
-    favoriteButton.addEventListener("click", () => {
-        buttonHandler(favoriteButton, j);
-    });
-
-    let editButton = createButton("edit");
-    editButton.addEventListener("click", () => {
-        buttonHandler(editButton, j);
-    });
-
-    buttons.appendChild(editButton);
-    buttons.appendChild(favoriteButton);
-    buttons.appendChild(deleteButton);
-
-    return buttons;
 }
 
 function getJournalEntry(j) {
@@ -160,7 +138,7 @@ function toggleJournal(pagination = false) {
         textContainer.style.display = "none";
         toolbar.style.display = "none";
         journal.style.display = "flex";
-        setJournalMainButtons();
+        getJournalMainButtons();
     }
 }
 
@@ -183,7 +161,7 @@ function resetJournal() {
     resPerPage = 0;
 }
 
-function setJournalMainButtons() {
+export function getJournalMainButtons() {
     nextButton.style.display = "flex";
     previousButton.style.display = "flex";
 
@@ -215,21 +193,18 @@ function search() {
     else {
         let request = new XMLHttpRequest();
         let url = "/search/" + this.value;
-        request.open("GET", url, true);
+
         request.onreadystatechange = () => {
             if (request.readyState == 4 && request.status == 200) {
-                let journalData = JSON.parse(request.responseText);
-                productCount = journalData.numOfProducts;
-                setJournalMainButtons();
+                productCount = JSON.parse(request.responseText).numOfProducts;
                 if (productCount === 0) {
-                    journal.querySelector("#entries").innerHTML = "<div><p>No results found</p></div>";
-                    setJournalMainButtons();
-                } else {
-                    getJournalCallback(request);
-                    setJournalMainButtons();
-                }
+                    journal.querySelector("#entries").innerHTML = "<p>No results found</p>";
+                } else getJournalCallback(request);
             }
-        };
+            getJournalMainButtons();
+        }
+
+        request.open("GET", url, true);
         request.send();
     }
 }

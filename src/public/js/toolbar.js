@@ -1,6 +1,6 @@
 import {
     textContainer
-} from "/main.js"
+} from './textCont.js'
 
 export const toolbar = document.getElementById("toolbar");
 

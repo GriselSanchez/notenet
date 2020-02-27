@@ -1,10 +1,13 @@
 const signUpContainer = document.getElementById("registration-form");
 const signInContainer = document.getElementById("logging-form");
-const forms = document.querySelectorAll("form");
-const openSignUpForm = document.getElementById("sign-up-message").querySelector("a");
 
+const forms = document.querySelectorAll("form");
 for (let f of forms) f.addEventListener("submit", submitForm);
 
+const closeFormBtn = document.getElementsByClassName("close-window");
+for (let c of closeFormBtn) c.addEventListener("click", () => c.parentElement.classList.toggle("active"));
+
+const openSignUpForm = document.getElementById("sign-up-message").querySelector("a");
 openSignUpForm.addEventListener("click", () => {
     signInContainer.classList.toggle("active");
     signUpContainer.classList.toggle("active");

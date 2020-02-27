@@ -41,17 +41,14 @@ svg rect {
   background-color: var(--accent-color);
 }
 
-/* width */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px var(--bg-color);
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--font-color);
 }
@@ -125,18 +122,14 @@ svg rect {
 
 #toolbar {
   background-color: var(--bg-color2);
-  /* width: fit-content; */
   width: 85%;
-  /* max-width: 80%; */
   display: flex;
   flex-wrap: wrap;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  /* border-radius: 10px; */
   padding: 10px;
   position: fixed;
   left: 15%;
-  /* margin: 3% 0%; */
   z-index: 2;
 }
 
@@ -270,7 +263,7 @@ svg rect {
 }
 
 #text-container span {
-  background-color: var(--bg-color) !important;
+  background-color: var(--bg-color);
 }
 
 #saved {
@@ -430,7 +423,6 @@ input[type="color"] {
   flex-direction: column;
 }
 
-/* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
@@ -438,14 +430,12 @@ input[type="color"] {
   height: 34px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -488,7 +478,6 @@ input:checked+.slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
   height: 20px;
@@ -559,7 +548,7 @@ figcaption {
 }
 
 .journal-item:hover {
-  transform: rotate(-.5deg);
+  transform: rotate(-1deg);
 }
 
 .journal-item button {

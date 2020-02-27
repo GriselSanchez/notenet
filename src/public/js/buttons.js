@@ -1,16 +1,15 @@
 import {
-    textContainer,
-    openModal,
-    closeModal
-} from "./main.js";
-
-
-import {
     closeJournal
 } from './journal.js'
 
-const closeButtons = document.getElementsByClassName("close-window");
-for (let b of closeButtons) b.addEventListener("click", () => b.parentElement.classList.toggle("active"));
+import {
+    textContainer
+} from './textCont.js'
+
+import {
+    openModal,
+    closeModal
+} from './animations.js'
 
 export function createButton(type) {
     let button = document.createElement("button");
@@ -36,14 +35,41 @@ export function buttonHandler(button, journal) {
             if (type === "edit") editButtonHandler(request);
             if (type === "more" || button.dataset.type === "less")
                 showMoreButtonHandler(button);
+
         }
     };
 
     request.open("POST", url, true);
     request.setRequestHeader("Content-Type", "application/json");
     request.send(json);
+}
 
-    //mostrar animacion de completado o reiniciar
+export function getJournalEntryButtons(j) {
+    let buttons = document.createElement("div");
+    buttons.classList.add("interface-buttons");
+
+    let deleteButton = createButton("delete");
+    deleteButton.addEventListener("click", () => {
+        buttonHandler(deleteButton, j);
+        window.location = "/";
+    });
+
+    let favoriteButton = createButton("favorite");
+    if (j.isFavorite) favoriteButton.style.color = "var(--accent-color)";
+    favoriteButton.addEventListener("click", () => {
+        buttonHandler(favoriteButton, j);
+    });
+
+    let editButton = createButton("edit");
+    editButton.addEventListener("click", () => {
+        buttonHandler(editButton, j);
+    });
+
+    buttons.appendChild(editButton);
+    buttons.appendChild(favoriteButton);
+    buttons.appendChild(deleteButton);
+
+    return buttons;
 }
 
 function addIcon(elem) {
@@ -62,8 +88,9 @@ function addIcon(elem) {
 
 function favoriteButtonHandler(favoriteButton) {
     if (favoriteButton.style.color === "var(--accent-color)")
-        favoriteButton.style.color = "white";
+        favoriteButton.style.color = "black";
     else favoriteButton.style.color = "var(--accent-color)";
+    closeModal();
 }
 
 function showMoreButtonHandler(button) {
@@ -82,6 +109,7 @@ function showMoreButtonHandler(button) {
     }
 
     addIcon(button);
+    closeModal();
 }
 
 function editButtonHandler(request) {

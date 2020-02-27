@@ -39,12 +39,6 @@ router.get("/entries/all/:page", auth, async (req, res) => {
         ["updated_at", -1]
     ]);
 
-    /*     const allTitles = await Journal.find({
-            userId: req.user._id
-        }, {
-            title: 1
-        }); */
-
     const data = {
         numOfProducts: numOfProducts,
         foundProducts: foundProducts,
