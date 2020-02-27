@@ -19,6 +19,28 @@ body {
   display: grid;
 }
 
+.loader {
+  height: 100px;
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  margin: 0 auto 1em;
+  display: inline-block;
+  vertical-align: top;
+  position: fixed;
+  top: 40%;
+  left: 20%;
+  right: 20%;
+}
+
+/*
+  Set the color of the icon
+*/
+svg path,
+svg rect {
+  fill: #FF6700;
+}
+
 #sidebar button.active {
   background-color: var(--accent-color);
 }

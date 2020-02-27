@@ -16,6 +16,7 @@ import {
 } from "./sidebar.js";
 
 const journal = document.getElementById("journal");
+const loader = document.getElementsByClassName("loader")[0];
 const previousButton = document.getElementById("previous");
 const nextButton = document.getElementById("next");
 const searchbar = document.getElementById("search-bar").querySelector("input");
@@ -28,6 +29,14 @@ let pageCompleted = false;
 
 previousButton.addEventListener("click", () => changePage(previousButton));
 nextButton.addEventListener("click", () => changePage(nextButton));
+
+function openModal() {
+    loader.style.display = "inline-block";
+}
+
+function closeModal() {
+    loader.style.display = "none";
+}
 
 export function setJournalType() {
     if (!document.cookie) window.alert("Please sign in first.");
@@ -50,6 +59,7 @@ function getJournal(type, pagination) {
     if (journal.style.display === "flex" && !pagination) closeJournal();
     else {
         if (!pageCompleted) {
+            openModal();
             let request = new XMLHttpRequest();
             let url = "/entries/" + type + "/" + currentPage;
             journal.setAttribute("data-type", type);
@@ -72,6 +82,7 @@ function getJournalCallback(request) {
         productCount = journalData.numOfProducts;
         resPerPage = journalData.resPerPage;
         journalData.foundProducts.forEach(getJournalEntry);
+        closeModal();
     }
 }
 
