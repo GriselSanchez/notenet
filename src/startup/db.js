@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 module.exports = function () {
     mongoose
-        .connect("mongodb://localhost/journal", {
+        .connect(process.env.MONGODB_URI || "mongodb://localhost/journal", {
             useNewUrlParser: true
         })
         .then(() => console.log("Connected to database..."))
