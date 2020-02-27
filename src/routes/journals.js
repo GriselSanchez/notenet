@@ -105,11 +105,6 @@ router.post("/journal/less", auth, async (req, res) => {
     res.status(200).send(journal);
 });
 
-router.post("/titles/all", auth, async (req, res) => {
-    let journal = await Journal.findById(req.body.id);
-    res.status(200).send(journal);
-});
-
 router.get("/search/:text", async (req, res) => {
     const resPerPage = 10;
     const page = req.params.page || 1;
