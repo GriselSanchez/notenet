@@ -25,7 +25,7 @@ body {
   text-align: center;
   padding: 1em;
   margin: 0 auto 1em;
-  display: inline-block;
+  display: none;
   vertical-align: top;
   position: fixed;
   top: 40%;
