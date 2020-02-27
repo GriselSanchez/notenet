@@ -408,6 +408,8 @@ input[type="color"] {
 .add-url,
 .add-image {
   display: none;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
 
 /* The switch - the box around the slider */
