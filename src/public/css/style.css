@@ -4,7 +4,7 @@
   --bg-color: white;
   --font-color: black;
   --bg-color2: black;
-  --accent-color: #FF5722;
+  --accent-color: #ff5722;
   --note-color: #ffffae;
 }
 
@@ -17,6 +17,24 @@ body {
   height: 100%;
   overflow-x: hidden;
   display: grid;
+}
+
+input[type="text"] {
+  text-decoration: none;
+  font-weight: 400 !important;
+  width: 95% !important;
+  border: none;
+}
+input[type="text"]:focus {
+  border: none;
+  outline: none;
+}
+input[type="text"].checked {
+  text-decoration: line-through;
+}
+input[type="checkbox"] {
+  margin-right: 5px !important;
+  width: 10px;
 }
 
 .loader {
@@ -105,7 +123,7 @@ svg rect {
 #sidebar button:active,
 #toolbar button:hover,
 #toolbar #upload-image:hover,
-.color-picker:hover+button {
+.color-picker:hover + button {
   background-color: var(--accent-color);
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
@@ -163,7 +181,7 @@ svg rect {
 
 #toolbar button:hover,
 #toolbar #upload-image:hover,
-#toolbar input:hover+button {
+#toolbar input:hover + button {
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
@@ -398,7 +416,6 @@ svg rect {
 }
 
 @keyframes fade {
-
   0%,
   80% {
     opacity: 0%;
@@ -464,15 +481,15 @@ input[type="color"] {
   background-color: var(--accent-color);
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: #1d1e24;
 }
 
-input:focus+.slider {
+input:focus + .slider {
   box-shadow: 0 0 1px #1d1e24;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -651,7 +668,6 @@ figcaption {
 }
 
 @media only screen and (max-width: 1100px) {
-
   #sidebar p,
   #dark-mode p {
     display: none;
@@ -666,7 +682,6 @@ figcaption {
 
   #toolbar button {
     padding: 1% 2%;
-    width: auto;
     height: auto;
   }
 
@@ -732,7 +747,7 @@ figcaption {
   }
 
   a:after {
-    content: " <"attr(href) ">";
+    content: " <" attr(href) ">";
   }
 
   #toolbar,

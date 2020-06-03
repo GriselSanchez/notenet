@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 
 <head>
-  <meta name='viewport'
-    content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
   <meta charset='utf-8'>
   <link rel="stylesheet" type="text/css" href="./css/style.css" />
-  <link href=" https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet">
-  <link
-    href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
-  <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href=" https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 </head>
@@ -21,15 +15,13 @@
 <body>
 
   <div class="loader">
-    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-      width="40px" height="40px" viewBox="0 0 50 50"
-      style="enable-background:new 0 0 50 50;" xml:space="preserve">
+    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+      x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;"
+      xml:space="preserve">
       <path fill="#000"
         d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
-        <animateTransform attributeType="xml" attributeName="transform"
-          type="rotate" from="0 25 25" to="360 25 25" dur="0.6s"
-          repeatCount="indefinite" />
+        <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25"
+          dur="0.6s" repeatCount="indefinite" />
       </path>
     </svg>
   </div>
@@ -38,18 +30,15 @@
     <h2>Sign In</h2>
     <div class="close-window"> <i class="material-icons">close</i></div>
 
-    <form data-type="logging" enctype="multipart/form-data" action="/logging"
-      method="post">
+    <form data-type="logging" enctype="multipart/form-data" action="/logging" method="post">
       <div class="form-wrapper">
         <i class="zmdi zmdi-account"></i>
-        <input type="text" name="username" placeholder="Username" required
-          autocomplete="off" />
+        <input type="text" name="username" placeholder="Username" required autocomplete="off" />
       </div>
 
       <div class="form-wrapper">
         <i class="zmdi zmdi-lock"></i>
-        <input type="password" name="password" placeholder="Password" required
-          autocomplete="off" />
+        <input type="password" name="password" placeholder="Password" required autocomplete="off" />
       </div>
       <div class="validation-message">
         <p></p>
@@ -61,8 +50,7 @@
     </div>
   </div>
 
-  <div class="form-container" enctype="multipart/form-data"
-    id="registration-form">
+  <div class="form-container" enctype="multipart/form-data" id="registration-form">
 
     <div class="close-window"> <i class="material-icons">close</i></div>
     <h2>Sign Up</h2>
@@ -70,18 +58,15 @@
     <form data-type="register" method="POST" action="/register">
       <div class="form-wrapper">
         <i class="zmdi zmdi-account"></i>
-        <input type="text" name="name" placeholder="Full Name"
-          autocomplete="off" />
+        <input type="text" name="name" placeholder="Full Name" autocomplete="off" />
       </div>
       <div class="form-wrapper">
         <i class="zmdi zmdi-account"></i>
-        <input type="text" name="username" placeholder="Username"
-          autocomplete="off" />
+        <input type="text" name="username" placeholder="Username" autocomplete="off" />
       </div>
       <div class="form-wrapper">
         <i class="zmdi zmdi-email"></i>
-        <input type="email" name="email" placeholder="Email Address"
-          autocomplete="off" />
+        <input type="email" name="email" placeholder="Email Address" autocomplete="off" />
       </div>
       <div class="form-wrapper">
         <i class="zmdi zmdi-lock"></i>
@@ -89,8 +74,7 @@
       </div>
       <div class="form-wrapper">
         <i class="zmdi zmdi-lock"></i>
-        <input type="password" name="passwordConfirmation"
-          placeholder="Confirm Password" />
+        <input type="password" name="passwordConfirmation" placeholder="Confirm Password" />
       </div>
       <div class="validation-message">
         <p></p>
@@ -253,11 +237,13 @@
       </button>
     </div>
 
+    <button data-action="toDo">
+      <i class="material-icons" style="color: white">check_box</i>
+    </button>
+
     <div id="upload-image">
-      <label for="getImageFromFiles"><i
-          class="material-icons">add_a_photo</i></label>
-      <input id="getImageFromFiles" type="file" accept="image/*"
-        style="visibility: hidden;"></input>
+      <label for="getImageFromFiles"><i class="material-icons">add_a_photo</i></label>
+      <input id="getImageFromFiles" type="file" accept="image/*" style="visibility: hidden;"></input>
     </div>
 
     <div class="new-input">
@@ -306,11 +292,7 @@
   <div id="text-container" contenteditable="true" spellcheck="false">
     <h1 class="has-placeholder" contenteditable="true" placeholder="Title"></h1>
     <p class="has-placeholder" contenteditable="true" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus
-    luctus enim et consectetur. Donec laoreet pharetra mi, eget euismod tortor
-    lacinia eu. Fusce nec sodales mi, et auctor neque. Mauris vel tincidunt
-    nisi. Integer auctor, ante sed euismod tempor, orci risus laoreet justo,
-    egestas venenatis sem tellus in quam. Nam pharetra pellentesque dolor,
-    mollis convallis libero."></p>
+    luctus enim et consectetur."></p>
     <textarea spellcheck="false" form="journal-entry"></textarea>
   </div>
 

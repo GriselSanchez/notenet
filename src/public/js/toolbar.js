@@ -24,12 +24,36 @@ for (let i of toolbar.children) {
         const addButton = i.querySelector("div").querySelector("button");
         addButton.addEventListener("click", () => add(addButton));
     }
+
 }
 
 function format(e, value = "null") {
     const action = e.dataset.action;
     if (action === "fontSize") textContainer.style.fontSize = value;
+    if (action == "toDo") addToDo();
     else document.execCommand(action, false, value);
+}
+
+function addToDo (){
+    const checkbox = document.createElement("input");
+    checkbox.setAttribute("type", "checkbox");
+    checkbox.classList.add("todo-box");
+    textContainer.insertAdjacentElement("beforeend", checkbox);
+    const newLine = document.createElement("br");
+    textContainer.insertAdjacentElement("beforeend", newLine);
+    checkbox.addEventListener("change", () => toDoStateHandler(checkbox));
+
+    const input = document.createElement("input");
+    input.setAttribute("type", "text");
+    checkbox.insertAdjacentElement("afterend", input);
+    input.focus();
+    input.addEventListener('keydown', (event) => {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            addToDo();
+        }
+    });
+
 }
 
 function toggle(e, on) {
@@ -94,4 +118,13 @@ function print() {
     /*    no funciona el page break
      for (let i of textContainer.children) i.classList.add("page-break"); */
     window.print();
+}
+
+
+function toDoStateHandler(cb) {
+    const cbLabel = cb.nextElementSibling;
+    if (cb.checked)
+        cbLabel.classList.add("checked")
+    else
+        cbLabel.classList.remove("checked")
 }
