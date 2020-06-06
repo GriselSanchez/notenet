@@ -34,6 +34,7 @@ select .zmdi {
 .select-wrapper {
   position: relative;
   font-weight: 700;
+  width: fit-content;
 }
 
 .select-wrapper:after {
@@ -48,10 +49,6 @@ select .zmdi {
   border-bottom: 1px solid white;
   position: absolute;
   pointer-events: none;
-}
-
-#font-size {
-  width: 60px;
 }
 
 input[type='text'].to-do {
@@ -240,6 +237,11 @@ svg rect {
   color: white;
   outline: white;
   padding: 10px;
+  width: 180px;
+}
+
+#toolbar #font-size {
+  width: 70px;
 }
 
 #text-container {

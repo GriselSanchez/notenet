@@ -31,6 +31,15 @@ for (let i of newInput) {
   addButton.addEventListener('click', () => add(addButton));
 }
 
+const selectMenus = document.getElementsByClassName('select-wrapper');
+
+for (let i of selectMenus) {
+  const menu = i.querySelector('select');
+  menu.addEventListener('change', () =>
+    format(menu, menu[menu.selectedIndex].value)
+  );
+}
+
 function format(e, value = 'null') {
   const action = e.dataset.action;
   if (action === 'fontSize') textContainer.style.fontSize = value;
