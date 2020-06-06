@@ -3,8 +3,8 @@
   height: 100%;
   --bg-color: white;
   --font-color: black;
-  --bg-color2: black;
-  --accent-color: #ff5722;
+  --bg-color2: #171717;
+  --accent-color: #8b54e6;
   --note-color: #ffffae;
 }
 
@@ -19,20 +19,48 @@ body {
   display: grid;
 }
 
-input[type="text"] {
+select .zmdi {
+  color: var(--accent-color) !important;
+  position: absolute;
+}
+
+.select-wrapper {
+  position: relative;
+  font-weight: 700;
+}
+
+.select-wrapper:after {
+  content: '<>';
+  font-family: 'Poppins';
+  font-weight: 400;
+  color: var(--bg-color);
+  transform: rotate(90deg);
+  right: 11px;
+  top: 8px;
+  padding: 0 0 2px;
+  border-bottom: 1px solid var(--bg-color);
+  position: absolute;
+  pointer-events: none;
+}
+
+#font-size {
+  width: 60px;
+}
+
+input[type='text'].to-do {
   text-decoration: none;
   font-weight: 400 !important;
   width: 95% !important;
   border: none;
 }
-input[type="text"]:focus {
+input[type='text'].to-do:focus {
   border: none;
   outline: none;
 }
-input[type="text"].checked {
+input[type='text'].to-do.checked {
   text-decoration: line-through;
 }
-input[type="checkbox"] {
+input[type='checkbox'] {
   margin-right: 5px !important;
   width: 10px;
 }
@@ -71,7 +99,7 @@ svg rect {
   background: var(--font-color);
 }
 
-[contenteditable="true"]:empty:before {
+[contenteditable='true']:empty:before {
   content: attr(placeholder);
   color: #6b6c7d;
   cursor: text;
@@ -205,7 +233,7 @@ svg rect {
   color: white;
   outline: white;
   margin: 5px;
-  padding: 2px;
+  padding: 5px 10px 5px 10px;
   height: 30px;
 }
 
@@ -427,7 +455,7 @@ svg rect {
   }
 }
 
-input[type="color"] {
+input[type='color'] {
   opacity: 0;
   width: 40px;
   position: absolute;
@@ -467,7 +495,7 @@ input[type="color"] {
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 13px;
   width: 13px;
   left: 3px;
@@ -747,7 +775,7 @@ figcaption {
   }
 
   a:after {
-    content: " <" attr(href) ">";
+    content: ' <' attr(href) '>';
   }
 
   #toolbar,

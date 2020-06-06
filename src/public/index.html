@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 
 <head>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+  <meta name='viewport'
+    content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
   <meta charset='utf-8'>
   <link rel="stylesheet" type="text/css" href="./css/style.css" />
-  <link href=" https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href=" https://fonts.googleapis.com/icon?family=Material+Icons"
+    rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Poppins&display=swap">
+  <link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 </head>
@@ -15,13 +21,15 @@
 <body>
 
   <div class="loader">
-    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-      x="0px" y="0px" width="40px" height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;"
+    <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px"
+      height="40px" viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;"
       xml:space="preserve">
       <path fill="#000"
         d="M43.935,25.145c0-10.318-8.364-18.683-18.683-18.683c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615c8.072,0,14.615,6.543,14.615,14.615H43.935z">
-        <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25"
-          dur="0.6s" repeatCount="indefinite" />
+        <animateTransform attributeType="xml" attributeName="transform"
+          type="rotate" from="0 25 25" to="360 25 25" dur="0.6s"
+          repeatCount="indefinite" />
       </path>
     </svg>
   </div>
@@ -30,15 +38,18 @@
     <h2>Sign In</h2>
     <div class="close-window"> <i class="material-icons">close</i></div>
 
-    <form data-type="logging" enctype="multipart/form-data" action="/logging" method="post">
+    <form data-type="logging" enctype="multipart/form-data" action="/logging"
+      method="post">
       <div class="form-wrapper">
         <i class="zmdi zmdi-account"></i>
-        <input type="text" name="username" placeholder="Username" required autocomplete="off" />
+        <input type="text" name="username" placeholder="Username" required
+          autocomplete="off" />
       </div>
 
       <div class="form-wrapper">
         <i class="zmdi zmdi-lock"></i>
-        <input type="password" name="password" placeholder="Password" required autocomplete="off" />
+        <input type="password" name="password" placeholder="Password" required
+          autocomplete="off" />
       </div>
       <div class="validation-message">
         <p></p>
@@ -50,7 +61,8 @@
     </div>
   </div>
 
-  <div class="form-container" enctype="multipart/form-data" id="registration-form">
+  <div class="form-container" enctype="multipart/form-data"
+    id="registration-form">
 
     <div class="close-window"> <i class="material-icons">close</i></div>
     <h2>Sign Up</h2>
@@ -58,15 +70,18 @@
     <form data-type="register" method="POST" action="/register">
       <div class="form-wrapper">
         <i class="zmdi zmdi-account"></i>
-        <input type="text" name="name" placeholder="Full Name" autocomplete="off" />
+        <input type="text" name="name" placeholder="Full Name"
+          autocomplete="off" />
       </div>
       <div class="form-wrapper">
         <i class="zmdi zmdi-account"></i>
-        <input type="text" name="username" placeholder="Username" autocomplete="off" />
+        <input type="text" name="username" placeholder="Username"
+          autocomplete="off" />
       </div>
       <div class="form-wrapper">
         <i class="zmdi zmdi-email"></i>
-        <input type="email" name="email" placeholder="Email Address" autocomplete="off" />
+        <input type="email" name="email" placeholder="Email Address"
+          autocomplete="off" />
       </div>
       <div class="form-wrapper">
         <i class="zmdi zmdi-lock"></i>
@@ -74,7 +89,8 @@
       </div>
       <div class="form-wrapper">
         <i class="zmdi zmdi-lock"></i>
-        <input type="password" name="passwordConfirmation" placeholder="Confirm Password" />
+        <input type="password" name="passwordConfirmation"
+          placeholder="Confirm Password" />
       </div>
       <div class="validation-message">
         <p></p>
@@ -128,61 +144,70 @@
   </div>
 
   <div id="toolbar">
-    <select class="sub-menu" data-action="fontName">
-      <option value="Arial">Arial</option>
-      <option value="Bookman">Bookman</option>
-      <option value="Calibri">Calibri</option>
-      <option value="Candara">Candara</option>
-      <option value="Courier New">Courier New</option>
-      <option value="Georgia">Georgia</option>
-      <option value="Garamond">Garamond</option>
-      <option value="Impact">Impact</option>
-      <option value="Palatino">Palatino</option>
-      <option value="Poppins" selected>Poppins</option>
-      <option value="Times New Roman">Times New Roman</option>
-      <option value="Verdana">Verdana</option>
-    </select>
+    <div class="select-wrapper">
+      <select class="sub-menu" data-action="fontName">
+        <option value="Arial">Arial</option>
+        <option value="Bookman">Bookman</option>
+        <option value="Calibri">Calibri</option>
+        <option value="Candara">Candara</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Garamond">Garamond</option>
+        <option value="Impact">Impact</option>
+        <option value="Palatino">Palatino</option>
+        <option value="Poppins" selected>Poppins</option>
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Verdana">Verdana</option>
+      </select></div>
 
-    <select class="sub-menu" data-action="formatBlock">
-      <option value="p">Paragraph</option>
-      <option value="H1" selected>
-        Heading</option>
-      <option value="H2">
-        Sub-heading 1</option>
-      <option value="H3">
-        Sub-heading 2</option>
-      <option value="BLOCKQUOTE">
-        Quote</option>
-    </select>
 
-    <select class="sub-menu" data-action="fontSize">
-      <option value="10px">
-        10</option>
-      <option value="12px">
-        12</option>
-      <option value="14px">
-        14</option>
-      <option value="18px" selected>
-        18</option>
-      <option value="24px">
-        24</option>
-      <option value="30px">
-        30</option>
-      <option value="36px">
-        36</option>
-      <option value="48px">
-        48</option>
-      <option value="60px">
-        60</option>
-      <option value="72px">
-        72</option>
-      <option value="96px">
-        96</option>
-    </select>
+    <div class="select-wrapper">
+      <select class="sub-menu" data-action="formatBlock">
+        <option value="p">Paragraph</option>
+        <option value="H1" selected>
+          Heading</option>
+        <option value="H2">
+          Sub-heading 1</option>
+        <option value="H3">
+          Sub-heading 2</option>
+        <option value="BLOCKQUOTE">
+          Quote</option>
+      </select>
+    </div>
 
-    <button data-action="justifyLeft">
-      <i class="material-icons">format_align_left</i>
-    </button>
+    <div class="select-wrapper">
+      <select class="sub-menu" id="font-size" data-action="fontSize">
+        <option value="10px">
+          10</option>
+        <option value="12px">
+          12</option>
+        <option value="14px">
+          14</option>
+        <option value="18px" selected>
+          18</option>
+        <option value="24px">
+          24</option>
+        <option value="30px">
+          30</option>
+        <option value="36px">
+          36</option>
+        <option value="48px">
+          48</option>
+        <option value="60px">
+          60</option>
+        <option value="72px">
+          72</option>
+        <option value="96px">
+          96</option>
+      </select>
+    </div>
+
+    <label title="Justify Left">
+      <button data-action="justifyLeft">
+        <i class="material-icons">format_align_left</i>
+      </button>
+    </label>
+
 
     <button data-action="justifyCenter">
       <i class="material-icons">format_align_center</i>
@@ -202,6 +227,10 @@
 
     <button data-action="insertOrderedList">
       <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <button data-action="toDo">
+      <i class="material-icons" style="color: white">check_box</i>
     </button>
 
     <button data-action="bold">
@@ -237,13 +266,11 @@
       </button>
     </div>
 
-    <button data-action="toDo">
-      <i class="material-icons" style="color: white">check_box</i>
-    </button>
-
     <div id="upload-image">
-      <label for="getImageFromFiles"><i class="material-icons">add_a_photo</i></label>
-      <input id="getImageFromFiles" type="file" accept="image/*" style="visibility: hidden;"></input>
+      <label for="getImageFromFiles"><i
+          class="material-icons">add_a_photo</i></label>
+      <input id="getImageFromFiles" type="file" accept="image/*"
+        style="visibility: hidden;"></input>
     </div>
 
     <div class="new-input">
@@ -274,8 +301,12 @@
           </i>
         </button>
       </div>
-
     </div>
+
+    <button id="print">
+      <i class="material-icons">print</i>
+    </button>
+
     <button data-action="undo">
       <i class="material-icons">undo</i>
     </button>
@@ -284,9 +315,6 @@
       <i class="material-icons">redo</i>
     </button>
 
-    <button id="print">
-      <i class="material-icons">print</i>
-    </button>
   </div>
 
   <div id="text-container" contenteditable="true" spellcheck="false">
