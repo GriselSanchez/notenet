@@ -31,6 +31,11 @@ select .zmdi {
   display: flex;
 }
 
+.font-wrapper {
+  display: flex;
+  width: fit-content;
+}
+
 .select-wrapper {
   position: relative;
   font-weight: 700;
@@ -54,7 +59,7 @@ select .zmdi {
 input[type='text'].to-do {
   text-decoration: none;
   font-weight: 400 !important;
-  width: 95% !important;
+  width: 98% !important;
   border: none;
 }
 input[type='text'].to-do:focus {
@@ -237,7 +242,6 @@ svg rect {
   color: white;
   outline: white;
   padding: 10px;
-  width: 180px;
 }
 
 #toolbar #font-size {
@@ -343,7 +347,7 @@ svg rect {
   position: relative;
   place-self: center;
   display: none;
-  width: 400px;
+  width: 300px;
   background-color: var(--accent-color);
   color: var(--bg-color);
   height: fit-content;
@@ -377,7 +381,7 @@ svg rect {
 .form-container select {
   padding: 12px;
   margin: 8px;
-  width: 250px;
+  width: 200px;
   background-color: white;
   color: black;
   border: 0;
@@ -388,8 +392,8 @@ svg rect {
 
 .form-container .zmdi {
   position: absolute;
-  color: var(--bg-color);
-  right: 50px;
+  color: black;
+  right: 65px;
   margin-top: 22px;
 }
 
@@ -514,15 +518,15 @@ input[type='color'] {
 }
 
 .slider.round:hover {
-  background-color: var(--accent-color);
+  background-color: grey;
 }
 
 input:checked + .slider {
-  background-color: #1d1e24;
+  background-color: var(--accent-color);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #1d1e24;
+  box-shadow: 0 0 1px black;
 }
 
 input:checked + .slider:before {
@@ -595,7 +599,7 @@ figcaption {
   margin: 0 0 1em;
   width: 100%;
   padding: 15px 25px;
-  box-shadow: 0 8px 10px -7px #999;
+  box-shadow: 0 8px 10px -7px black;
   border-bottom-right-radius: 60px 10px;
 }
 
@@ -705,6 +709,7 @@ figcaption {
 .dropdown {
   position: relative;
   display: inline-block;
+  padding: 0px 10px;
 }
 
 .dropdown-content {
@@ -740,18 +745,12 @@ figcaption {
     width: 100%;
   }
 
-  #toolbar button {
-    padding: 1% 2%;
-    height: auto;
+  #sidebar button {
+    padding: 15px;
   }
 
-  #toolbar #upload-image {
-    padding: 2%;
-  }
-
-  .color-picker,
-  .new-input {
-    padding: 2%;
+  .button-wrapper {
+    display: contents;
   }
 
   #toolbar select {

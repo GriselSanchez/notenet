@@ -144,35 +144,37 @@
   </div>
 
   <div id="toolbar">
-    <div class="select-wrapper">
-      <select class="sub-menu" data-action="fontName">
-        <option value="Arial">Arial</option>
-        <option value="Bookman">Bookman</option>
-        <option value="Calibri">Calibri</option>
-        <option value="Candara">Candara</option>
-        <option value="Courier New">Courier New</option>
-        <option value="Georgia">Georgia</option>
-        <option value="Garamond">Garamond</option>
-        <option value="Impact">Impact</option>
-        <option value="Palatino">Palatino</option>
-        <option value="Poppins" selected>Poppins</option>
-        <option value="Times New Roman">Times New Roman</option>
-        <option value="Verdana">Verdana</option>
-      </select></div>
+    <div class="font-wrapper">
+      <div class="select-wrapper">
+        <select class="sub-menu" data-action="fontName">
+          <option value="Arial">Arial</option>
+          <option value="Bookman">Bookman</option>
+          <option value="Calibri">Calibri</option>
+          <option value="Candara">Candara</option>
+          <option value="Courier New">Courier New</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Garamond">Garamond</option>
+          <option value="Impact">Impact</option>
+          <option value="Palatino">Palatino</option>
+          <option value="Poppins" selected>Poppins</option>
+          <option value="Times New Roman">Times New Roman</option>
+          <option value="Verdana">Verdana</option>
+        </select>
+      </div>
 
-
-    <div class="select-wrapper">
-      <select class="sub-menu" data-action="formatBlock">
-        <option value="p">Paragraph</option>
-        <option value="H1" selected>
-          Heading</option>
-        <option value="H2">
-          Sub-heading 1</option>
-        <option value="H3">
-          Sub-heading 2</option>
-        <option value="BLOCKQUOTE">
-          Quote</option>
-      </select>
+      <div class="select-wrapper">
+        <select class="sub-menu" data-action="formatBlock">
+          <option value="p">Paragraph</option>
+          <option value="H1" selected>
+            Heading</option>
+          <option value="H2">
+            Sub-heading 1</option>
+          <option value="H3">
+            Sub-heading 2</option>
+          <option value="BLOCKQUOTE">
+            Quote</option>
+        </select>
+      </div>
     </div>
 
     <div class="select-wrapper">
@@ -201,6 +203,7 @@
           96</option>
       </select>
     </div>
+
 
     <div class="button-wrapper">
       <button data-action="justifyLeft">
@@ -316,7 +319,7 @@
       </div>
     </div>
 
-    <div class="button-wrapper dropdown">
+    <div class="dropdown">
       <button>
         <i class="material-icons">more_horiz</i>
       </button>
