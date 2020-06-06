@@ -33,12 +33,12 @@ select .zmdi {
   content: '<>';
   font-family: 'Poppins';
   font-weight: 400;
-  color: var(--bg-color);
+  color: white;
   transform: rotate(90deg);
   right: 11px;
   top: 8px;
   padding: 0 0 2px;
-  border-bottom: 1px solid var(--bg-color);
+  border-bottom: 1px solid white;
   position: absolute;
   pointer-events: none;
 }
@@ -582,7 +582,6 @@ figcaption {
 
 .journal-item {
   color: black;
-  background-color: var(--note-color);
   word-break: break-word;
   display: inline-block;
   margin: 0 0 1em;
