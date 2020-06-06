@@ -631,7 +631,7 @@ figcaption {
 }
 
 .journal-item .interface-buttons {
-  text-align-last: center;
+  text-align: -webkit-center;
 }
 
 .journal-item button:hover,
