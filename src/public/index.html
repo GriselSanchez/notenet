@@ -16,6 +16,7 @@
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+
 </head>
 
 <body>
@@ -335,6 +336,9 @@
     <h1 class="has-placeholder" contenteditable="true" placeholder="Title"></h1>
     <p class="has-placeholder" contenteditable="true" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus
     luctus enim et consectetur."></p>
+    <div id="sheet-container">
+      <canvas id="sheet" width="400" height="400"></canvas>
+    </div>
     <textarea spellcheck="false" form="journal-entry"></textarea>
   </div>
 
@@ -360,6 +364,7 @@
     </div>
   </div>
 
+  <script type='text/javascript' src='http://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.4.0/fabric.min.js'></script>
   <script type="module" src="./js/main.js"></script>
 </body>
 

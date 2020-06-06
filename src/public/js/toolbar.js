@@ -165,3 +165,9 @@ function toDoStateHandler(cb) {
   if (cb.checked) cbLabel.classList.add('checked');
   else cbLabel.classList.remove('checked');
 }
+
+/* var canvas = new fabric.Canvas('sheet');
+canvas.isDrawingMode = true;
+canvas.freeDrawingBrush.width = 1;
+canvas.freeDrawingBrush.color = '#ff0000';
+console.log(canvas); */
