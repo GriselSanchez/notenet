@@ -202,119 +202,130 @@
       </select>
     </div>
 
-    <label title="Justify Left">
+    <div class="button-wrapper">
       <button data-action="justifyLeft">
         <i class="material-icons">format_align_left</i>
       </button>
-    </label>
 
+      <button data-action="justifyCenter">
+        <i class="material-icons">format_align_center</i>
+      </button>
 
-    <button data-action="justifyCenter">
-      <i class="material-icons">format_align_center</i>
-    </button>
+      <button data-action="justifyRight">
+        <i class="material-icons">format_align_right</i>
+      </button>
 
-    <button data-action="justifyRight">
-      <i class="material-icons">format_align_right</i>
-    </button>
+      <button data-action="justifyFull">
+        <i class="material-icons">format_align_justify</i>
+      </button>
+    </div>
 
-    <button data-action="justifyFull">
-      <i class="material-icons">format_align_justify</i>
-    </button>
+    <div class="button-wrapper">
+      <button data-action="indent">
+        <i class="material-icons">format_indent_increase</i>
+      </button>
 
-    <button data-action="insertUnorderedList">
-      <i class="material-icons">format_list_bulleted</i>
-    </button>
+      <button data-action="outdent">
+        <i class="material-icons">format_indent_decrease</i>
+      </button>
 
-    <button data-action="insertOrderedList">
-      <i class="material-icons">format_list_numbered</i>
-    </button>
+      <button data-action="insertUnorderedList">
+        <i class="material-icons">format_list_bulleted</i>
+      </button>
 
-    <button data-action="toDo">
-      <i class="material-icons" style="color: white">check_box</i>
-    </button>
+      <button data-action="insertOrderedList">
+        <i class="material-icons">format_list_numbered</i>
+      </button>
 
-    <button data-action="bold">
-      <i class="material-icons">format_bold</i>
-    </button>
+      <button data-action="toDo">
+        <i class="material-icons" style="color: white">check_box</i>
+      </button>
+    </div>
 
-    <button data-action="italic">
-      <i class="material-icons">format_italic</i>
-    </button>
+    <div class="button-wrapper">
+      <button data-action="bold">
+        <i class="material-icons">format_bold</i>
+      </button>
 
-    <button data-action="underline">
-      <i class="material-icons">format_underlined</i>
-    </button>
+      <button data-action="italic">
+        <i class="material-icons">format_italic</i>
+      </button>
 
-    <button data-action="strikeThrough">
-      <i class="material-icons">format_strikethrough</i>
-    </button>
+      <button data-action="underline">
+        <i class="material-icons">format_underlined</i>
+      </button>
 
-    <button data-action="removeFormat">
+      <button data-action="strikeThrough">
+        <i class="material-icons">format_strikethrough</i>
+      </button>
+
+      <!--     <button data-action="removeFormat">
       <i class="material-icons">format_clear</i>
     </button>
+ -->
+      <div class="color-picker">
+        <input type="color" data-action="foreColor" />
+        <button><i class="material-icons">format_color_text</i>
+        </button>
+      </div>
 
-    <div class="color-picker">
-      <input type="color" data-action="foreColor" />
-      <button><i class="material-icons">format_color_text</i>
-      </button>
-    </div>
-
-    <div class="color-picker">
-      <input type="color" data-action="hiliteColor" />
-      <button><i class="material-icons">border_color
-        </i>
-      </button>
-    </div>
-
-    <div id="upload-image">
-      <label for="getImageFromFiles"><i
-          class="material-icons">add_a_photo</i></label>
-      <input id="getImageFromFiles" type="file" accept="image/*"
-        style="visibility: hidden;"></input>
-    </div>
-
-    <div class="new-input">
-      <button>
-        <i class="material-icons">insert_photo
-        </i>
-      </button>
-      <div class="add-image">
-        <input type="text" autocomplete="off" placeholder="Url">
-        <input type="text" autocomplete="off" placeholder="Caption">
-        <button data-action="insertImage">
-          <i class="material-icons">add
+      <div class="color-picker">
+        <input type="color" data-action="hiliteColor" />
+        <button><i class="material-icons">border_color
           </i>
         </button>
       </div>
     </div>
 
-    <div class="new-input">
-      <button>
-        <i class="material-icons">link
-        </i>
-      </button>
-      <div class="add-url">
-        <input type="text" autocomplete="off" placeholder="Url">
-        <input type="text" autocomplete="off" placeholder="Name">
-        <button data-action="createLink">
-          <i class="material-icons">add
+    <div class="button-wrapper">
+      <div id="upload-image">
+        <label for="getImageFromFiles"><i
+            class="material-icons">add_a_photo</i></label>
+        <input id="getImageFromFiles" type="file" accept="image/*"
+          style="visibility: hidden;"></input>
+      </div>
+
+      <div class="new-input">
+        <button>
+          <i class="material-icons">insert_photo
           </i>
         </button>
+        <div class="add-image">
+          <input type="text" autocomplete="off" placeholder="Url">
+          <input type="text" autocomplete="off" placeholder="Caption">
+          <button data-action="insertImage">
+            <i class="material-icons">add
+            </i>
+          </button>
+        </div>
+      </div>
+
+      <div class="new-input">
+        <button>
+          <i class="material-icons">link
+          </i>
+        </button>
+        <div class="add-url">
+          <input type="text" autocomplete="off" placeholder="Url">
+          <input type="text" autocomplete="off" placeholder="Name">
+          <button data-action="createLink">
+            <i class="material-icons">add
+            </i>
+          </button>
+        </div>
       </div>
     </div>
 
-    <button id="print">
-      <i class="material-icons">print</i>
-    </button>
-
-    <button data-action="undo">
-      <i class="material-icons">undo</i>
-    </button>
-
-    <button data-action="redo">
-      <i class="material-icons">redo</i>
-    </button>
-
+    <div class="button-wrapper dropdown">
+      <button>
+        <i class="material-icons">more_horiz</i>
+      </button>
+      <div class="dropdown-content">
+        <button id="print">
+          <i class="material-icons">print</i>
+        </button>
+      </div>
+    </div>
   </div>
 
   <div id="text-container" contenteditable="true" spellcheck="false">

@@ -7,28 +7,28 @@ document
   .addEventListener('change', getImageFromFiles);
 document.getElementById('print').addEventListener('click', print);
 
-for (let i of toolbar.children) {
-  if (i.matches('.select-wrapper')) {
-    const menu = i.firstElementChild;
-    menu.addEventListener('change', () =>
-      format(menu, menu[menu.selectedIndex].value)
-    );
+const buttonWrappers = document.getElementsByClassName('button-wrapper');
+for (let wrapper of buttonWrappers) {
+  let buttons = wrapper.children;
+  for (let b of buttons) {
+    b.addEventListener('click', () => format(b));
   }
+}
 
-  if (i.matches('button')) i.addEventListener('click', () => format(i));
+const colorPicker = document.getElementsByClassName('color-picker');
+for (let c of colorPicker)
+  c.querySelector('input').addEventListener('change', (e) =>
+    format(e.target, e.target.value)
+  );
 
-  if (i.matches('.color-picker')) {
-    const input = i.querySelector('input');
-    input.addEventListener('change', () => format(input, input.value));
-  }
+const newInput = document.getElementsByClassName('new-input');
 
-  if (i.matches('.new-input')) {
-    const toggleButton = i.querySelector('button');
-    toggleButton.addEventListener('click', () => toggle(toggleButton, true));
+for (let i of newInput) {
+  const toggleButton = i.querySelector('button');
+  toggleButton.addEventListener('click', () => toggle(toggleButton, true));
 
-    const addButton = i.querySelector('div').querySelector('button');
-    addButton.addEventListener('click', () => add(addButton));
-  }
+  const addButton = i.querySelector('div').querySelector('button');
+  addButton.addEventListener('click', () => add(addButton));
 }
 
 function format(e, value = 'null') {
