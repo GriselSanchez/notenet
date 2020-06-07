@@ -394,7 +394,6 @@ svg rect {
   top: 15px;
   right: 15px;
 }
-
 #close-drawing {
   display: none;
 }
@@ -799,9 +798,9 @@ iframe {
     padding: 15px;
   }
 
-  .button-wrapper {
+  /*   .button-wrapper {
     display: contents;
-  }
+  } */
 
   #toolbar select {
     margin: 0;
@@ -830,6 +829,68 @@ iframe {
   #journal {
     margin-left: 5%;
     margin-right: 5%;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  #toolbar {
+    width: -webkit-fill-available;
+    left: 0;
+    bottom: 0;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+  }
+
+  #toolbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  #text-container {
+    top: 40px;
+  }
+
+  #sidebar {
+    width: 100%;
+    flex-direction: row;
+    padding-top: 0;
+    height: 10%;
+    display: flex;
+    align-items: flex-end;
+    z-index: 3;
+  }
+
+  #sidebar #tools,
+  #sidebar #sign {
+    display: contents;
+    width: auto;
+    position: relative;
+  }
+  #sidebar #sign button,
+  #sidebar #tools button {
+    margin: 2%;
+    padding: 10px;
+  }
+
+  #sidebar #dark-mode {
+    position: static;
+    padding-right: 20px;
+  }
+
+  #text-container {
+    font-family: Poppins, regular;
+    color: var(--font-color);
+    font-size: 18px;
+    left: 25px;
+    top: 70px;
+  }
+
+  .dropdown-content {
+    bottom: 100% !important;
+    top: auto !important;
   }
 }
 
