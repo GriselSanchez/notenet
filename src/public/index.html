@@ -342,6 +342,9 @@
         <button id="print">
           <i class="material-icons">print</i>
         </button>
+        <button id="draw">
+          <i class="zmdi zmdi-palette zmdi-hc-2x"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -350,9 +353,18 @@
     <h1 class="has-placeholder" contenteditable="true" placeholder="Title"></h1>
     <p class="has-placeholder" contenteditable="true" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus
     luctus enim et consectetur."></p>
-    <!-- <div id="sheet-container">
-      <canvas id="sheet" width="400" height="400"></canvas>
-    </div> -->
+    <div id="sheet-container" style="display: none">
+      <input type="button" id="save-drawing" value="Save to PNG"> 
+      <input type="button" id="clear-drawing" value="Clear"/>
+      <div class="color-picker" style="display: inline-block;">
+        <input type="color" id="brush-color" value="#000000"/>
+        <button><i class="material-icons">color_lens</i>
+        </button>
+      </div>
+      <input type="range" id="brush-width" value="2" min="1" max="70"/>
+      <input type="button" id="close-drawing" value="Exit"> 
+      <canvas class="canvas" id="sheet" width="600" height="400" ></canvas>
+    </div>
     <textarea spellcheck="false" form="journal-entry"></textarea>
   </div>
 

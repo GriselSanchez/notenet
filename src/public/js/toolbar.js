@@ -5,7 +5,9 @@ export const toolbar = document.getElementById('toolbar');
 document
   .getElementById('getImageFromFiles')
   .addEventListener('change', getImageFromFiles);
+
 document.getElementById('print').addEventListener('click', print);
+document.getElementById('draw').addEventListener('click', draw);
 
 const buttonWrappers = document.getElementsByClassName('button-wrapper');
 for (let wrapper of buttonWrappers) {
@@ -195,8 +197,41 @@ function toDoStateHandler(cb) {
   else cbLabel.classList.remove('checked');
 }
 
-/* var canvas = new fabric.Canvas('sheet');
-canvas.isDrawingMode = true;
-canvas.freeDrawingBrush.width = 1;
-canvas.freeDrawingBrush.color = '#ff0000';
-console.log(canvas); */
+function draw() {
+  document.getElementById('sheet-container').style.display = 'block';
+
+  if (document.getElementsByClassName('canvas').length === 1)
+    var canvas = new fabric.Canvas('sheet');
+  else canvas = document.getElementsByClassName('canvas-container')[0];
+  canvas.isDrawingMode = true;
+  canvas.freeDrawingBrush.width = 2;
+  canvas.freeDrawingBrush.color = '#ff0000';
+
+  document.getElementById('save-drawing').onclick = function () {
+    getImage(
+      document.getElementsByClassName('canvas')[0].toDataURL({ format: 'png' }),
+      ''
+    );
+    exitCanva(canvas);
+  };
+
+  document.getElementById('clear-drawing').onclick = function () {
+    canvas.clear();
+  };
+
+  document.getElementById('brush-color').addEventListener('change', (e) => {
+    canvas.freeDrawingBrush.color = e.target.value;
+  });
+
+  document.getElementById('brush-width').addEventListener('change', (e) => {
+    canvas.freeDrawingBrush.width = e.target.value;
+  });
+
+  document.getElementById('close-drawing').onclick = function () {
+    exitCanva(canvas);
+  };
+}
+function exitCanva(canvas) {
+  document.getElementById('sheet-container').style.display = 'none';
+  canvas.clear();
+}
