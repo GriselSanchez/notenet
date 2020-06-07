@@ -16,10 +16,14 @@ for (let wrapper of buttonWrappers) {
 }
 
 const colorPicker = document.getElementsByClassName('color-picker');
-for (let c of colorPicker)
+for (let c of colorPicker) {
   c.querySelector('input').addEventListener('change', (e) =>
     format(e.target, e.target.value)
   );
+  c.querySelector('input').addEventListener('keyup', (e) =>
+    format(e.target, e.target.value)
+  );
+}
 
 const newInput = document.getElementsByClassName('new-input');
 
