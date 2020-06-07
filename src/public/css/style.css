@@ -834,9 +834,9 @@ iframe {
 
 @media only screen and (max-width: 950px) {
   #toolbar {
-    width: -webkit-fill-available;
+    width: inherit;
     left: 0;
-    bottom: 0;
+    top: 0;
     flex-wrap: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
@@ -860,7 +860,8 @@ iframe {
     height: 10%;
     display: flex;
     align-items: flex-end;
-    z-index: 3;
+    z-index: 10;
+    bottom: 0;
   }
 
   #sidebar #tools,
@@ -871,7 +872,7 @@ iframe {
   }
   #sidebar #sign button,
   #sidebar #tools button {
-    margin: 2%;
+    margin: auto;
     padding: 10px;
   }
 
@@ -888,9 +889,20 @@ iframe {
     top: 70px;
   }
 
-  .dropdown-content {
-    bottom: 100% !important;
-    top: auto !important;
+  #journal {
+    left: 0;
+    top: 20px;
+  }
+
+  #interface {
+    width: 100%;
+    align-self: center;
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    background: var(--bg-color2);
   }
 }
 
