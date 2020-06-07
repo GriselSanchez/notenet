@@ -474,7 +474,8 @@ input[type='color'] {
 }
 
 .add-url,
-.add-image {
+.add-image,
+.add-video {
   display: none;
   flex-wrap: wrap;
   flex-direction: column;
@@ -620,7 +621,8 @@ figcaption {
   border-radius: 0;
 }
 
-.journal-item img {
+.journal-item img,
+.journal-item iframe {
   vertical-align: middle;
   max-width: 100%;
 }
@@ -737,7 +739,17 @@ figcaption {
   display: block;
 }
 
+iframe {
+  width: 727px;
+  height: 409px;
+}
+
 @media only screen and (max-width: 1100px) {
+  iframe {
+    width: 100%;
+    height: 185px;
+  }
+
   #sidebar p,
   #dark-mode p {
     display: none;

@@ -116,10 +116,35 @@ function add(e) {
 
   if (container.className === 'add-image') getImage(url, text);
 
+  if (container.className === 'add-video') getYoutubeFrame(url);
+
   toggle(container, false);
 
-  url = '';
-  text = '';
+  container.children[0].value = '';
+  container.children[1].value = '';
+}
+
+function getYoutubeFrame(url) {
+  const frame = document.createElement('iframe');
+
+  //link acortado
+  if (url.includes('youtu.be'))
+    url = url.replace('youtu.be/', 'www.youtube.com/watch?v=');
+
+  //link normal
+  url = url.split('watch?v=');
+  url = url[0] + 'embed/' + url[1];
+
+  console.log(url);
+
+  frame.setAttribute('src', url);
+  frame.setAttribute('frameborder', '0');
+  frame.setAttribute(
+    'allow',
+    'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture'
+  );
+  frame.setAttribute('allowfullscreen', true);
+  textContainer.insertAdjacentElement('beforeend', frame);
 }
 
 function getImage(url, text) {
