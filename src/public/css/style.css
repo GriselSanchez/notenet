@@ -56,10 +56,15 @@ select .zmdi {
   pointer-events: none;
 }
 
+.todo-container {
+  display: flex;
+  align-items: baseline;
+}
+
 input[type='text'].to-do {
   text-decoration: none;
   font-weight: 400 !important;
-  width: 98% !important;
+  width: 100%;
   border: none;
 }
 input[type='text'].to-do:focus {

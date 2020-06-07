@@ -55,6 +55,7 @@ function format(e, value = 'null') {
 
 function addToDo() {
   const container = document.createElement('div');
+  container.classList.add('todo-container');
   const newLine = document.createElement('br');
   const checkbox = makeCheckbox();
   const input = makeInputbox();
