@@ -106,11 +106,11 @@ svg rect {
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px var(--bg-color);
+  box-shadow: inset 0 0 5px grey;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--font-color);
+  background: var(--accent-color);
 }
 
 [contenteditable='true']:empty:before {
@@ -850,10 +850,6 @@ iframe {
     white-space: nowrap;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-  }
-
-  #toolbar::-webkit-scrollbar {
-    display: none;
   }
 
   #text-container {
