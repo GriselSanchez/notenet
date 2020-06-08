@@ -238,9 +238,9 @@ svg rect {
   cursor: pointer;
 }
 
-.material-icons {
+/* .material-icons {
   font-size: 1.7em !important;
-}
+} */
 
 #toolbar #upload-image {
   padding: 8px;
@@ -794,6 +794,7 @@ iframe {
   }
 
   #sidebar .glyphicon,
+  #sidebar i,
   #sidebar #sign button {
     padding: 10px 0px;
     margin: 0;
