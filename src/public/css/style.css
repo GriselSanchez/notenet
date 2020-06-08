@@ -143,7 +143,8 @@ svg rect {
   display: flex;
 }
 
-#sidebar .glyphicon {
+#sidebar .glyphicon,
+#sidebar i {
   width: 30%;
   margin: auto;
   top: auto;
