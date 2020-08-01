@@ -36,7 +36,7 @@ router.get(
         req.customQuery = { userId: req.user._id };
         next();
     },
-    pagination(20)
+    pagination
 );
 
 router.get(
@@ -46,7 +46,7 @@ router.get(
         req.customQuery = { userId: req.user._id, isFavorite: true };
         next();
     },
-    pagination(10)
+    pagination
 );
 
 router.get(
@@ -56,12 +56,12 @@ router.get(
         req.customQuery = {
             html: {
                 $regex: req.params.text,
-                $options: 'i', //case insensitive
+                $options: 'i' //case insensitive
             },
         };
         next();
     },
-    pagination(10)
+    pagination
 );
 
 router.post('/journal/delete', auth, async (req, res) => {

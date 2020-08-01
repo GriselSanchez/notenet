@@ -1,8 +1,9 @@
 const Journal = require('../models/journal');
 
 
-module.exports = (limit) => async (req, res) => {
+module.exports = async (req, res) => {
     const query = { ...req.customQuery }
+    const limit = 10;
     const page = req.params.page || 1;
 
     const numOfProducts = await Journal.countDocuments(query);
