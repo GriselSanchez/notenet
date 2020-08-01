@@ -2,7 +2,7 @@ const bodyParser = require("body-parser");
 const journals = require("../routes/journals");
 const users = require('../routes/users');
 
-module.exports = function (app) {
+module.exports = (app) => {
     app.use(bodyParser.json({
         extended: true,
         limit: '50mb'

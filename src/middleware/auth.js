@@ -10,7 +10,7 @@ module.exports = function (req, res, next) {
     const decoded = jwt.verify(token, process.env.JWT_KEY || "secretPrivateKey");
     req.user = decoded;
     next();
-  } catch (ex) {
+  } catch (err) {
     res.status(400).send("Invalid token.");
   }
 };
