@@ -2,20 +2,24 @@ const express = require('express');
 const router = express.Router();
 const Journal = require('../models/journal');
 const auth = require('../middleware/auth');
+const pagination = require('../middleware/pagination');
 
-router.post("/journal/save", auth, async (req, res) => {
-    let journal = await Journal.findOneAndUpdate({
-        userId: req.user._id,
-        title: req.body.title,
-    }, {
-        html: req.body.html
-    });
+router.post('/journal/save', auth, async (req, res) => {
+    let journal = await Journal.findOneAndUpdate(
+        {
+            userId: req.user._id,
+            title: req.body.title,
+        },
+        {
+            html: req.body.html,
+        }
+    );
 
     if (!journal) {
         let journal = new Journal({
             userId: req.user._id,
             title: req.body.title,
-            html: req.body.html
+            html: req.body.html,
         });
 
         journal = await journal.save();
@@ -25,112 +29,66 @@ router.post("/journal/save", auth, async (req, res) => {
     return res.status(200).send(journal);
 });
 
-router.get("/entries/all/:page", auth, async (req, res) => {
-    const resPerPage = 10;
-    const page = req.params.page || 1;
+router.get(
+    '/entries/all/:page',
+    auth,
+    (req, res, next) => {
+        req.customQuery = { userId: req.user._id };
+        next();
+    },
+    pagination(20)
+);
 
-    const numOfProducts = await Journal.countDocuments({
-        userId: req.user._id
-    });
+router.get(
+    '/entries/favorites/:page',
+    auth,
+    (req, res, next) => {
+        req.customQuery = { userId: req.user._id, isFavorite: true };
+        next();
+    },
+    pagination(10)
+);
 
-    const foundProducts = await Journal.find({
-        userId: req.user._id
-    }).skip((resPerPage * page) - resPerPage).limit(resPerPage).sort([
-        ["updated_at", -1]
-    ]);
+router.get(
+    '/search/:text',
+    auth,
+    (req, res, next) => {
+        req.customQuery = {
+            html: {
+                $regex: req.params.text,
+                $options: 'i', //case insensitive
+            },
+        };
+        next();
+    },
+    pagination(10)
+);
 
-    const data = {
-        numOfProducts: numOfProducts,
-        foundProducts: foundProducts,
-        resPerPage: resPerPage
-    }
-
-    res.setHeader("Content-Type", "application/json");
-    res.status(200).send(data);
-});
-
-router.get("/entries/favorites/:page", auth, async (req, res) => {
-    const resPerPage = 50;
-    const page = req.params.page || 1;
-
-    const numOfProducts = await Journal.countDocuments({
-        userId: req.user._id,
-        isFavorite: true
-    });
-
-    const foundProducts = await Journal.find({
-        userId: req.user._id,
-        isFavorite: true
-    }).skip((resPerPage * page) - resPerPage).limit(resPerPage).sort([
-        ["updated_at", -1]
-    ]);
-
-    const data = {
-        numOfProducts: numOfProducts,
-        foundProducts: foundProducts,
-        resPerPage: resPerPage,
-    }
-
-    res.setHeader("Content-Type", "application/json");
-    res.status(200).send(data);
-});
-
-router.post("/journal/delete", auth, async (req, res) => {
+router.post('/journal/delete', auth, async (req, res) => {
     await Journal.findByIdAndDelete(req.body.id);
     res.end();
 });
 
-router.post("/journal/favorite", auth, async (req, res) => {
+router.post('/journal/favorite', auth, async (req, res) => {
     let journal = await Journal.findById(req.body.id);
+
     await Journal.findByIdAndUpdate(req.body.id, {
-        isFavorite: !journal.isFavorite //setear al contrario de lo que está para asi sacar el fav si quiero
+        isFavorite: !journal.isFavorite,
     });
+
     res.end();
 });
 
-router.post("/journal/edit", auth, async (req, res) => {
+router.post('/journal/edit', auth, async (req, res) => {
     let journal = await Journal.findByIdAndUpdate(req.body.id, {
-        html: req.body.html
+        html: req.body.html,
     });
     res.status(200).send(journal);
 });
 
-router.post("/journal/more", auth, async (req, res) => {
+router.post(['/journal/more', '/journal/less'], auth, async (req, res) => {
     let journal = await Journal.findById(req.body.id);
     res.status(200).send(journal);
-});
-
-router.post("/journal/less", auth, async (req, res) => {
-    let journal = await Journal.findById(req.body.id);
-    res.status(200).send(journal);
-});
-
-router.get("/search/:text", async (req, res) => {
-    const resPerPage = 10;
-    const page = req.params.page || 1;
-
-    const numOfProducts = await Journal.countDocuments({
-        html: {
-            $regex: req.params.text,
-            $options: "i" //case insensitive
-        }
-    });
-
-    const foundProducts = await Journal.find({
-        html: {
-            $regex: req.params.text,
-            $options: "i" //case insensitive
-        }
-    }).skip((resPerPage * page) - resPerPage).limit(resPerPage).sort([
-        ["updated_at", -1]
-    ]);
-
-    const data = {
-        numOfProducts: numOfProducts,
-        foundProducts: foundProducts,
-        resPerPage: resPerPage,
-    }
-    res.send(data);
 });
 
 module.exports = router;
