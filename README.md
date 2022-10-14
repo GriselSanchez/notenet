@@ -1,5 +1,8 @@
 # Notenet
-[notenet.herokuapp.com/](notenet.herokuapp.com/)
+[notenet.herokuapp.com](https://notenet.herokuapp.com)
+
+![Preview](https://github.com/GriselSanchez/readme-files/blob/main/notenet-preview.png)
+
 ## Made with
 * **Backend**: Node.js, Express, MongoDB, JSON Web Tokens.
 * **Frontend**: Vanilla JS.
